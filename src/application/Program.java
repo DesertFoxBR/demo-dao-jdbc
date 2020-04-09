@@ -1,8 +1,8 @@
 package application;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
@@ -30,13 +30,15 @@ public class Program {
 		for (Seller obj : list) {
 			System.out.println(obj);
 		}
-		System.out.println("===== Test 5: seller update =====");
+		System.out.println("===== Test 6: seller delete =====");
 		
-		Seller seller = sellerDao.findById(1);
-		System.out.println("Inserted! New id: " + seller.getId());
-		seller.setName("Martha Wayne");
-		sellerDao.update(seller);
-		System.out.println("Update completed!");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Entre id to delete: ");
+		int id = sc.nextInt();
+		
+		sellerDao.deleteById(id);
+		System.out.println("Delete completed!");
+		sc.close();
 	}
 
 }
